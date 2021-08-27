@@ -1,10 +1,50 @@
 import "./styles.css";
+import Connections from "./components/Connections";
+import Home from "./components/Home";
+import About from "./components/About";
+import Courses from "./components/Courses";
+import Tms from "./components/Tms";
+import Skills from "./components/Skills";
+import Academics from "./components/Academics";
+import Projects from "./components/Projects";
+import Contact from "./components/Contact";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 export default function App() {
   return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
+    <Router>
+      <div className="App">
+        <Connections />
+        <div className="content">
+          <Switch>
+            <Route path="/Home">
+              <Home />
+            </Route>
+            <Route path="/About">
+              <About />
+            </Route>
+            <Route path="/Skills">
+              <Skills />
+            </Route>
+            <Route path="/Academics">
+              <Academics />
+            </Route>
+            <Route path="/Projects">
+              <Projects />
+            </Route>
+            <Route path="/Courses">
+              <Courses />
+            </Route>
+            <Route path="/Contact">
+              <Contact />
+            </Route>
+
+            <Route path="/Tms">
+              <Tms />
+            </Route>
+          </Switch>
+        </div>
+      </div>
+    </Router>
   );
 }
