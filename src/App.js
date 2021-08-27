@@ -9,6 +9,7 @@ import Academics from "./components/Academics";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import EachCourse from "./components/EachCourse";
 
 export default function App() {
   return (
@@ -32,7 +33,11 @@ export default function App() {
             <Route path="/Projects">
               <Projects />
             </Route>
-            <Route path="/Courses">
+            <Route exact path="/Courses">
+              <Courses />
+            </Route>
+            <Route path="/Courses/:id">
+              <EachCourse />
               <Courses />
             </Route>
             <Route path="/Contact">

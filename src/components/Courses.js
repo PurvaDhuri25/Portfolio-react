@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Detail from "./Detail";
+
 const Courses = () => {
   const [courseList, setCourseList] = useState([
     {
@@ -21,7 +23,18 @@ const Courses = () => {
       id: 3
     }
   ]);
-
-  return <Detail courseList={courseList} />;
+  return (
+    <div className="home">
+      {courseList.map((course) => (
+        <div className="course-preview" key={course.id}>
+          <Link to={"/Courses/${course.id}"}>
+            <h2>{course.title}</h2>
+            <p>Taught by {course.prof}</p>
+          </Link>
+        </div>
+      ))}
+    </div>
+  );
+  // return <Detail courseList={courseList} />;
 };
 export default Courses;
